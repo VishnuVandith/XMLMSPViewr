@@ -1,0 +1,33 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+    
+    <web-item key="MSP Home" name="Google Home" section="system.header/right" weight="90">
+        <description key="MSPViewer">Simple link to google.com.</description>
+        <label key="Run MSP" />
+         <!--<link linkId="google_home">http://localhost:8090/pages/editpage.action?pageId=950282</link>-->
+		
+		<!--<link linkId="view-attachments-link">/pages/editpage.action?pageId=$page.id</link>-->
+		<link linkId="edit-page-link">MSPViewer.js</link>
+    </web-item>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="MSPViewer"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="MSPViewer-resources" name="MSPViewer Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="MSPViewer.css" location="/css/MSPViewer.css"/>
+        <resource type="download" name="MSPViewer.js" location="/js/MSPViewer.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>MSPViewer</context>
+    </web-resource>
+    
+</atlassian-plugin>
